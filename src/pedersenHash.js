@@ -1,5 +1,4 @@
 import buildBabyJub from "./babyjub.js";
-import blake2b from "blake2b";
 import createBlakeHash from "blake-hash";
 import { Scalar } from "ffjavascript";
 
@@ -22,8 +21,6 @@ class PedersenHash {
     baseHash(type, S) {
         if (type == "blake") {
             return createBlakeHash("blake256").update(S).digest();
-        } else if (type == "blake2b") {
-            return Buffer.from(blake2b(32).update(Buffer.from(S)).digest());
         }
     }
 

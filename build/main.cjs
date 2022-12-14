@@ -3,14 +3,12 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var ffjavascript = require('ffjavascript');
-var blake2b = require('blake2b');
 var createBlakeHash = require('blake-hash');
 var ethers = require('ethers');
 var assert = require('assert');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var blake2b__default = /*#__PURE__*/_interopDefaultLegacy(blake2b);
 var createBlakeHash__default = /*#__PURE__*/_interopDefaultLegacy(createBlakeHash);
 var ethers__default = /*#__PURE__*/_interopDefaultLegacy(ethers);
 var assert__default = /*#__PURE__*/_interopDefaultLegacy(assert);
@@ -172,8 +170,6 @@ class PedersenHash {
     baseHash(type, S) {
         if (type == "blake") {
             return createBlakeHash__default["default"]("blake256").update(S).digest();
-        } else if (type == "blake2b") {
-            return Buffer.from(blake2b__default["default"](32).update(Buffer.from(S)).digest());
         }
     }
 
